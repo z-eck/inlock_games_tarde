@@ -1,0 +1,40 @@
+USE inlock_games_tarde;
+GO
+
+SELECT * FROM USUARIO;
+GO
+
+SELECT * FROM ESTUDIO;
+GO
+
+SELECT * FROM JOGO;
+GO
+
+SELECT * FROM JOGO
+INNER JOIN ESTUDIO
+ON JOGO.idEstudio = ESTUDIO.idEstudio;
+GO
+
+SELECT * FROM ESTUDIO
+LEFT JOIN JOGO
+ON ESTUDIO.idEstudio = JOGO.idEstudio;
+GO
+
+SELECT * FROM USUARIO
+WHERE USUARIO.email = 'cliente@cliente.com' AND USUARIO.senha = 'cliente';
+GO
+
+SELECT * FROM USUARIO 
+WHERE USUARIO.email = 'admin@admin.com' AND USUARIO.senha = 'admin';
+GO
+
+SELECT * FROM JOGO 
+WHERE JOGO.idJogo = 1;
+GO
+
+SELECT * FROM ESTUDIO
+WHERE ESTUDIO.idEstudio = 1;
+GO
+
+SELECT * FROM TIPO_USUARIO;
+GO
