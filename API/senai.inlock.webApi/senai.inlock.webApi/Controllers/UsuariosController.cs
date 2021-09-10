@@ -27,39 +27,38 @@ namespace senai.inlock.webApi.Controllers
         [HttpPost("Login")]
         public IActionResult Login(UsuarioDomain login)
         {
-            UsuarioDomain usuarioLogin = usuarioRepositorio.logar(login.email, login.senha);
-            if (usuarioLogin == null)
-            {
-                return NotFound("Email ou senha inválidos!");
-            }
-            else
-            {
-                var claimsToken = new[]
+                UsuarioDomain usuarioLogin = usuarioRepositorio.logar(login.email, login.senha);
+                if (usuarioLogin == null)
                 {
+                    return NotFound("Email ou senha inválidos!");
+                }
+                else
+                {
+                    var claimsToken = new[]
+                    {
                     new Claim(JwtRegisteredClaimNames.Email, usuarioLogin.email),
                     new Claim(JwtRegisteredClaimNames.NameId, usuarioLogin.idUsuario.ToString()),
                     new Claim(ClaimTypes.Role, usuarioLogin.tipoUsuario.titulo)
                 };
 
-                var chaveToken = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("chaveSegurancaInlock"));
+                    var chaveToken = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("chaveSegurancaInlock"));
 
-                var credenciaisToken = new SigningCredentials(chaveToken, SecurityAlgorithms.HmacSha256);
+                    var credenciaisToken = new SigningCredentials(chaveToken, SecurityAlgorithms.HmacSha256);
 
-                var loginToken = new JwtSecurityToken(
-                        issuer: "senai.inlock.webAPI",
-                        audience: "senai.inlock.webAPI",
-                        claims: claimsToken,
-                        expires: DateTime.Now.AddHours(1),
-                        signingCredentials: credenciaisToken
-                    );
-                return Ok(new
-                {
-                    token = new JwtSecurityTokenHandler().WriteToken(loginToken)
-                });
-            }
+                    var loginToken = new JwtSecurityToken(
+                            issuer: "senai.inlock.webAPI",
+                            audience: "senai.inlock.webAPI",
+                            claims: claimsToken,
+                            expires: DateTime.Now.AddHours(1),
+                            signingCredentials: credenciaisToken
+                        );
+                    return Ok(new
+                    {
+                        token = new JwtSecurityTokenHandler().WriteToken(loginToken)
+                    });
+                }
         }
         [HttpGet]
-        [Authorize(Roles = "Administrador")]
         public IActionResult LerTodos()
         {
             List<UsuarioDomain> usuarios = new List<UsuarioDomain>();

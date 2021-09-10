@@ -10,6 +10,6 @@ namespace senai.inlock.webApi.Repositories
     /// </summary>
     public class BaseRepository
     {
-        protected string stringConexao = "Data Source=PEDRO-PC\\SQLEXPRESS; initial catalog=Rental; user Id=sa; pwd=senai@123";
+        protected string stringConexao = "Data Source=PEDRO-PC\\SQLEXPRESS; initial catalog=inlock_games_tarde; user Id=sa; pwd=senai@123";
     }
 }

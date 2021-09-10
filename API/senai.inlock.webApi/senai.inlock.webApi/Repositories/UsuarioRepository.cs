@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace senai.inlock.webApi.Repositories
 {
-    public class UsuarioRepository : BaseRepository, IUsuarioRepository
+    public class UsuarioRepository : IUsuarioRepository
     {
+        private string stringConexao = "Data Source=PEDRO-PC\\SQLEXPRESS; initial catalog=inlock_games_tarde; user Id=sa; pwd=senai@123";
         public void atualizar(UsuarioDomain usuarioAtualizado, int idUsuarioAtualizado)
         {
             using (SqlConnection conexao = new SqlConnection(stringConexao))
@@ -120,13 +121,13 @@ namespace senai.inlock.webApi.Repositories
                                          LEFT JOIN TIPO_USUARIO
                                          ON USUARIO.idTipoUsuario = TIPO_USUARIO.IdTipoUsuario
                                          WHERE email = @email AND senha = @senha";
-                SqlDataReader leitorDeDados;
                 using (SqlCommand comando = new SqlCommand(cmdVerificar, conexao))
                 {
+                    SqlDataReader leitorDeDados;
                     comando.Parameters.AddWithValue("@email", email);
                     comando.Parameters.AddWithValue("@senha", senha);
                     leitorDeDados = comando.ExecuteReader();
-                    if (leitorDeDados.Read() == true)
+                    if (leitorDeDados.Read())
                     {
                         usuarioLogin.email = leitorDeDados[0].ToString();
                         usuarioLogin.tipoUsuario.titulo = leitorDeDados[1].ToString();
