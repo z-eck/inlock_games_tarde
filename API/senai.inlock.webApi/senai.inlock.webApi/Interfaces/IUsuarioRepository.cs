@@ -13,5 +13,6 @@ namespace senai.inlock.webApi.Interfaces
         void cadastrar(UsuarioDomain novoUsuario);
         void atualizar(UsuarioDomain usuarioAtualizado, int idUsuarioAtualizado);
         void deletar(int idUsuarioDeletado);
+        UsuarioDomain logar(string email, string senha);
     }
 }
