@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>senai.inlock.webApi</name>
+    </assembly>
+    <members>
+        <member name="T:senai.inlock.webApi.Repositories.BaseRepository">
+            <summary>
+            Classe criada para que a string de conexão não precise ser definida em todos os repositórios individualmente
+            </summary>
+        </member>
+    </members>
+</doc>
