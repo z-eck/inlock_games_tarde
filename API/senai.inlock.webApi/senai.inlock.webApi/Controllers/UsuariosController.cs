@@ -59,9 +59,10 @@ namespace senai.inlock.webApi.Controllers
                 }
         }
         [HttpGet]
+        [Authorize(Roles = "Administrador")]
         public IActionResult LerTodos()
         {
-            List<UsuarioDomain> usuarios = new List<UsuarioDomain>();
+            List<UsuarioDomain> usuarios = usuarioRepositorio.listarTodos();
             return Ok(usuarios);
         }
 

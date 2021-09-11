@@ -35,7 +35,7 @@ namespace senai.inlock.webApi.Repositories
             using (SqlConnection conexao = new SqlConnection(stringConexao))
             {
                 conexao.Open();
-                string cmdReadWhere = $@"SELECT titulo, email FROM USUARIO
+                string cmdReadWhere = $@"SELECT titulo, email, idUsuario, USUARIO.idTipoUsuario FROM USUARIO
                                          LEFT JOIN TIPO_USUARIO
                                          ON USUARIO.idTipoUsuario = TIPO_USUARIO.idTipoUsuario
                                          WHERE USUARIO.idUsuario = @idUsuarioBuscado";
@@ -47,7 +47,12 @@ namespace senai.inlock.webApi.Repositories
                     if (leitorDeDados.Read())
                     {
                         usuarioBuscado.email = leitorDeDados[1].ToString();
-                        usuarioBuscado.tipoUsuario.titulo = leitorDeDados[0].ToString();
+                        usuarioBuscado.tipoUsuario = new TipoUsuarioDomain { 
+                            titulo = leitorDeDados[0].ToString(),
+                            idTipoUsuario = Convert.ToInt32(leitorDeDados[3])
+                        };
+                        usuarioBuscado.idUsuario = Convert.ToInt32(leitorDeDados[2]);
+                        usuarioBuscado.idTipoUsuario = Convert.ToInt32(leitorDeDados[3]);
                     }
                     else return null;
                     return usuarioBuscado;
@@ -92,7 +97,7 @@ namespace senai.inlock.webApi.Repositories
             using (SqlConnection conexao = new SqlConnection(stringConexao))
             {
                 conexao.Open();
-                string cmdRead = $@"SELECT titulo, email FROM USUARIO
+                string cmdRead = $@"SELECT titulo, email, idUsuario, USUARIO.idTipoUsuario FROM USUARIO
                                        LEFT JOIN TIPO_USUARIO
                                        ON USUARIO.idTipoUsuario = TIPO_USUARIO.idTipoUsuario";
                 SqlDataReader leitorDeDados;
@@ -103,7 +108,12 @@ namespace senai.inlock.webApi.Repositories
                     {
                         UsuarioDomain usuarioConsultado = new UsuarioDomain();
                         usuarioConsultado.email = leitorDeDados[1].ToString();
-                        usuarioConsultado.tipoUsuario.titulo = leitorDeDados[0].ToString();
+                        usuarioConsultado.tipoUsuario = new TipoUsuarioDomain { 
+                            titulo = leitorDeDados[0].ToString(),
+                            idTipoUsuario = Convert.ToInt32(leitorDeDados[3])
+                        };
+                        usuarioConsultado.idUsuario = Convert.ToInt32(leitorDeDados[2]);
+                        usuarioConsultado.idTipoUsuario = Convert.ToInt32(leitorDeDados[3]);
                         usuarios.Add(usuarioConsultado);
                     }
                 }
@@ -130,7 +140,9 @@ namespace senai.inlock.webApi.Repositories
                     if (leitorDeDados.Read())
                     {
                         usuarioLogin.email = leitorDeDados[0].ToString();
-                        usuarioLogin.tipoUsuario.titulo = leitorDeDados[1].ToString();
+                        usuarioLogin.tipoUsuario = new TipoUsuarioDomain { 
+                            titulo = leitorDeDados[1].ToString() 
+                        };
                         usuarioLogin.idUsuario = Convert.ToInt32(leitorDeDados[2]);
                     }
                     else return null;
