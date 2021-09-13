@@ -98,7 +98,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nomeJogo\": A fuga das batatas\r\n}",
+							"raw": "{\r\n    \"nomeJogo\": \"A fuga das batatas\",\r\n    \"descricao\": \"Uma linda aventura sobre batatas fugitivas baseada no filme que ganhou o Oscar\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -132,7 +132,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsIm5hbWVpZCI6IjEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjMxNTY3MTk2LCJpc3MiOiJzZW5haS5pbmxvY2sud2ViQVBJIiwiYXVkIjoic2VuYWkuaW5sb2NrLndlYkFQSSJ9.L1ggTb-EGpV21wVJqWTGhjvAXxIW6pxx0-Bs-_ZDf5g",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNsaWVudGVAY2xpZW50ZS5jb20iLCJuYW1laWQiOiIyIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQ2xpZW50ZSIsImV4cCI6MTYzMTU3MTIyNSwiaXNzIjoic2VuYWkuaW5sb2NrLndlYkFQSSIsImF1ZCI6InNlbmFpLmlubG9jay53ZWJBUEkifQ.UoyzRs3QPfpLBUcfR6L_L9J7bNdCstbEqYW9Aj5NYr0",
 									"type": "string"
 								}
 							]
@@ -166,7 +166,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsIm5hbWVpZCI6IjEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjMxNTY3MTk2LCJpc3MiOiJzZW5haS5pbmxvY2sud2ViQVBJIiwiYXVkIjoic2VuYWkuaW5sb2NrLndlYkFQSSJ9.L1ggTb-EGpV21wVJqWTGhjvAXxIW6pxx0-Bs-_ZDf5g",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsIm5hbWVpZCI6IjEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjMxNTcxNDgwLCJpc3MiOiJzZW5haS5pbmxvY2sud2ViQVBJIiwiYXVkIjoic2VuYWkuaW5sb2NrLndlYkFQSSJ9.dHxLuj3iWW095oGMDm1ORjrgpvFfkpGX4vnyGfq1ces",
 									"type": "string"
 								}
 							]
@@ -175,7 +175,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"idEstudio\": 3\r\n    \"nomeJogo\": teste\r\n    \"descricao\": Este jogo é um máximo, serve para ser um testador de primeira!\r\n    \"valor\": 22.29\r\n    \"dataLancamento\": 13/08/2021\r\n}",
+							"raw": "{\r\n    \"idEstudio\": 2,\r\n    \"nomeJogo\": \"Overwatch\",\r\n    \"descricao\": \"Heroe shooting em primeira pessoa\",\r\n    \"valor\": 22.29,\r\n    \"dataLancamento\": \"2016-05-24\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -209,7 +209,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsIm5hbWVpZCI6IjEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjMxNTY3MTk2LCJpc3MiOiJzZW5haS5pbmxvY2sud2ViQVBJIiwiYXVkIjoic2VuYWkuaW5sb2NrLndlYkFQSSJ9.L1ggTb-EGpV21wVJqWTGhjvAXxIW6pxx0-Bs-_ZDf5g",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsIm5hbWVpZCI6IjEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjMxNTcyMDI0LCJpc3MiOiJzZW5haS5pbmxvY2sud2ViQVBJIiwiYXVkIjoic2VuYWkuaW5sb2NrLndlYkFQSSJ9.2bx-aoolwKyn7hBF8akxN9ZXjQT7xLZMmrkk4sAA6r0",
 									"type": "string"
 								}
 							]
@@ -217,19 +217,17 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:5000/api/Jogos/2",
+							"raw": "http://localhost:5000/api/Jogos/excluir/4",
 							"protocol": "http",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"localhost"
 							],
 							"port": "5000",
 							"path": [
 								"api",
 								"Jogos",
-								"2"
+								"excluir",
+								"4"
 							]
 						}
 					},

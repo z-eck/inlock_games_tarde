@@ -10,7 +10,7 @@ namespace senai.inlock.webApi.Repositories
 {
     public class JogoRepository : IJogoRepository
     {
-        private string stringConexao = @"CAL\SQLEXPRESS; initial catalog=inlock_games_tarde; user Id=sa; pwd=Senai@132";
+        private string stringConexao = "Data Source=PEDRO-PC\\SQLEXPRESS; initial catalog=inlock_games_tarde; user Id=sa; pwd=senai@123";
         public void Atualizar(JogoDomain JogoAtualizado, int idJogoAtualizado)
         {
             using (SqlConnection con = new SqlConnection(stringConexao))
@@ -29,11 +29,11 @@ namespace senai.inlock.webApi.Repositories
             }
         }
 
-        public JogoDomain BuscarPorID(int idJogoBuscado, int idEstudioBuscado, string nomeJogoBuscado, string descricaoBuscado, decimal valorBuscado, DateTime dataBuscada)
+        public JogoDomain BuscarPorID(int idJogoBuscado)
         {
             using (SqlConnection con = new SqlConnection(stringConexao))
             {
-                string querySelectById = "SELECT idJogo, idEstudio, nomeJogo, descricao, valor, dataLancamento FROM JOGO WHERE idJogo = @idJogo";
+                string querySelectById = "SELECT idJogo, JOGO.idEstudio, nomeJogo, descricao, valor, dataLancamento FROM JOGO WHERE idJogo = @idJogo";
 
                 con.Open();
 
@@ -42,11 +42,6 @@ namespace senai.inlock.webApi.Repositories
                 using (SqlCommand cmd = new SqlCommand(querySelectById, con))
                 {
                     cmd.Parameters.AddWithValue("@idJogo", idJogoBuscado);
-                    cmd.Parameters.AddWithValue("idEstudio", idEstudioBuscado);
-                    cmd.Parameters.AddWithValue("nomeJogo", nomeJogoBuscado);
-                    cmd.Parameters.AddWithValue("descricao", descricaoBuscado);
-                    cmd.Parameters.AddWithValue("valor", valorBuscado);
-                    cmd.Parameters.AddWithValue("dataLancamento", dataBuscada);
 
                     reader = cmd.ExecuteReader();
 

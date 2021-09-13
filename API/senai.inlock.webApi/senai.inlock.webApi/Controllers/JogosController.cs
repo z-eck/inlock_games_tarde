@@ -34,7 +34,7 @@ namespace senai.inlock.webApi.Controllers
             return Ok(listaJogos);
         }
 
-        [Authorize(Roles = "ADMINISTRADOR")]
+        [Authorize(Roles = "Administrador")]
         [HttpPost]
         public IActionResult Post(JogoDomain novoJogo)
         {
@@ -43,7 +43,7 @@ namespace senai.inlock.webApi.Controllers
             return StatusCode(201);
         }
 
-        [Authorize(Roles = "ADMINISTRADOR, CLIENTE")]
+        [Authorize(Roles = "Administrador, Cliente")]
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
@@ -57,8 +57,8 @@ namespace senai.inlock.webApi.Controllers
             return Ok(jogoBuscado);
         }
 
-        [Authorize(Roles = "ADMINISTRADOR")]
-        [HttpPut("{id}")]
+        [Authorize(Roles = "Administrador")]
+        [HttpPut("{idJogoAtualizado}")]
         public IActionResult PutIdUrl(JogoDomain JogoAtualizado, int idJogoAtualizado)
         {
             JogoDomain jogoAtualizar = _JogoRepository.BuscarPorID(idJogoAtualizado);
@@ -86,7 +86,7 @@ namespace senai.inlock.webApi.Controllers
             }
         }
         
-        [Authorize(Roles = "ADMINISTRADOR")]
+        [Authorize(Roles = "Administrador")]
         [HttpDelete("excluir/{id}")]
         public IActionResult Delete(int id)
         {
